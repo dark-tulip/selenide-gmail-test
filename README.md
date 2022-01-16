@@ -47,3 +47,5 @@ Commonly recommend official website  https://ru.selenide.org/quick-start.html
 
 
 **Just press RUN button on the IDE to start it**
+
+<img src="https://user-images.githubusercontent.com/89765480/149645341-5f2ff409-6117-419c-87c0-496dcafc2993.png" width="800" height="300" />
