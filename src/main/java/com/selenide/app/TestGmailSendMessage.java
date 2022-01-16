@@ -139,7 +139,7 @@ public class TestGmailSendMessage {
 		// Кнопка Написать на главное странице
 		$(write_msg_btn).shouldBe(enabled, Duration.ofSeconds(50)).click();
 		
-	    // Кому
+	        // Кому
 		$("div.wO.nr.l1 textarea.vO:nth-child(2)").shouldBe(enabled, Duration.ofSeconds(10)).setValue(USER_GMAIL_TOSEND);
 		$("div.aoI input.aoT").shouldBe(enabled, Duration.ofSeconds(10)).setValue(MSG_THEME); 		      // Тема
 		$(".Am.Al.editable.LW-avf").shouldBe(enabled, Duration.ofSeconds(10)).setValue(FULL_MSG_TEXT); 	  // message Text 
