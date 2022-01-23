@@ -33,7 +33,7 @@ public class TestGmailSendMessage {
 	
 	String todayAsString = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
 	String SIGNATURE_NAME = "ITS MY TEST SIGNATURE " + todayAsString;
-	String SIGNATURE_TEXT = "SIGNATURE FROM UNKNOWN USER" + todayAsString;
+	String SIGNATURE_TEXT = "SIGNATURE FROM UNKNOWN USER " + todayAsString;
 
 	String USER_GMAIL_TOSEND = "donefortest@gmail.com";
 	String MSG_THEME = "TEXT THEME";
@@ -47,6 +47,7 @@ public class TestGmailSendMessage {
 	@Before
 	public void setUp()  {
 		Configuration.browser = "chrome";
+		Configuration.webdriverLogsEnabled = false;
 	}
 	
 	
@@ -98,7 +99,7 @@ public class TestGmailSendMessage {
 		$("span.bAq").shouldHave(text("Сообщение отправлено."), Duration.ofSeconds(30));  // Алерт вышел
 		$("span#link_vsm").shouldBe(visible, Duration.ofSeconds(30)).click();             // Перейти к сообщению с алерта
 		
-		$("span.go").shouldHave(text(USER_GMAIL_TOSEND));  // Есть гмайл юзера, которому отправиоли сообщение
+		$("span.go").shouldHave(text(USER_GMAIL_TOSEND));  // Есть гмайл юзера, которому отправили сообщение
 		Selenide.sleep(2000);
 	 }	 
 	
@@ -145,7 +146,7 @@ public class TestGmailSendMessage {
 		$(".Am.Al.editable.LW-avf").shouldBe(enabled, Duration.ofSeconds(10)).setValue(FULL_MSG_TEXT); 	  // message Text 
 		// Добавляем подпись
 		$("div.BP").shouldBe(enabled, Duration.ofSeconds(10)).click();  // pencil of signature icon
-		$(byText(SIGNATURE_NAME)).shouldBe(enabled, Duration.ofSeconds(10)).click(); // По добавленной подписи выбираем из попам меню
+		$(byText(SIGNATURE_NAME)).shouldBe(enabled, Duration.ofSeconds(10)).click(); // По добавленной подписи выбираем из popup меню
 		// Отправить
 		$("div.T-I.J-J5-Ji.aoO.v7.T-I-atl.L3").shouldBe(enabled, Duration.ofSeconds(10)).click();
 		Selenide.sleep(1000);
